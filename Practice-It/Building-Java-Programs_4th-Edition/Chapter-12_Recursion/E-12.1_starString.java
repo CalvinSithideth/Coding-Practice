@@ -16,6 +16,7 @@ starString(4);	"****************"	2^4 = 16
 You should throw an IllegalArgumentException if passed a value less than 0.
 
 
+Solution (method problem):
  */
 
 public String starString(int n) {
