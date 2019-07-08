@@ -1,0 +1,18 @@
+/*
+BJP4 Self-Check 13.9: bigOh1
+Assignment: 
+
+Approximate the runtime of the following code fragment, in terms of n:
+Write your answer in a format such as "O(N^2)" or "O(N log N)" (without the quotes).
+
+int sum = 0;
+int j = 1;
+while (j <= n) {
+    sum++;
+    j = j * 2;
+}
+
+Solution (Self-Check):
+ */
+
+big-oh: O(logN)
