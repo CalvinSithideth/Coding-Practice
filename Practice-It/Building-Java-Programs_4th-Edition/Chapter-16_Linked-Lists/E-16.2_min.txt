@@ -1,0 +1,39 @@
+/*
+BJP4 Exercise 16.2: min
+Assignment: 
+
+Write a method min that returns the minimum value in a list of integers.
+
+If the list is empty, it should throw a NoSuchElementException.
+
+Assume that you are adding this method to the LinkedIntList class as defined below:
+
+public class LinkedIntList {
+    private ListNode front;   // null for an empty list
+    ...
+}
+
+
+Solution (partial class problem):
+*/
+
+
+public int min() {
+    
+    if (front == null) {
+        throw new NoSuchElementException();
+    }
+    
+    ListNode currentNode = front;
+    int minimumValue = currentNode.data;
+    
+    while ( currentNode.next != null ) {
+        currentNode = currentNode.next;
+        if (currentNode.data < minimumValue) {
+            minimumValue = currentNode.data;
+        }
+    }
+    
+    return minimumValue;
+    
+}
