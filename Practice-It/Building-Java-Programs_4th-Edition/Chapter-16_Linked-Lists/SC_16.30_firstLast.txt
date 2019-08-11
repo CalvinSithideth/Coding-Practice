@@ -1,0 +1,56 @@
+/*
+BJP4 Self-Check 16.30: firstLast
+Assignment: 
+
+Write a method firstLast that could be added to the LinkedIntList class that
+moves the first element of the list to the back end of the list.
+Suppose a LinkedIntList variable named list stores the following elements from
+front (left) to back (right):
+
+[18, 4, 27, 9, 54, 5, 63]
+
+If you made the call of list.firstLast();,
+the list would then store the elements in this order:
+
+[4, 27, 9, 54, 5, 63, 18]
+
+If the list is empty or has just one element, its contents should not be modified.
+
+
+Obey the following restrictions in your solution:
+
+Do not call any other methods on the LinkedIntList object, such as add, remove, or size.
+Do not create new ListNode objects (though you may have as many ListNode variables as you like).
+Do not use other data structures such as arrays, lists, queues, etc.
+Do not mutate the data of any existing node; change the list only by modifying links between nodes.
+Your solution should run in O(N) time, where N is the number of elements of the linked list.
+Assume that you are adding this method to the LinkedIntList class (that uses the ListNode class) below.
+
+
+public class LinkedIntList {
+    private ListNode front;
+    ...
+}
+
+public class ListNode {
+    public int data;
+    public ListNode next;
+    ...
+}
+
+
+Solution (partial class problem):
+ */
+
+public void firstLast() {
+    if ( front == null || front.next == null ) {
+        return;
+    }
+    ListNode current = front;
+    while ( current.next != null ) {
+        current = current.next;
+    }
+    current.next = front;
+    front = front.next;
+    current.next.next = null;
+}
