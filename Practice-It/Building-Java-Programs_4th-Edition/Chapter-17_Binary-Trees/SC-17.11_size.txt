@@ -1,0 +1,49 @@
+/*
+BJP4 Self-Check 17.11: size
+Assignment:
+
+Write a method size that returns the total number of nodes in the tree.
+For example, the following tree has a size of 8:
+
+               +---+
+               | 6 |
+           ___ +---+ ___
+         /               \
+     +---+               +---+
+     | 3 |               | 2 |
+     +---+               +---+
+    /     \             /     \
++---+     +---+     +---+     +---+
+| 1 |     | 4 |     | 6 |     | 4 |
++---+     +---+     +---+     +---+
+                                   \
+                                   +---+
+                                   | 0 |
+                                   +---+
+
+Assume that you are adding this method to the IntTree class as defined below:
+
+public class IntTree {
+    private IntTreeNode overallRoot; // null for an empty tree
+    ...
+}
+
+
+Solution (partial class problem):
+ */
+ 
+
+ // We always want to use a public interface and a private helper method for binary trees & recursion
+ 
+public int size() {
+    return size( overallRoot );
+}
+
+private int size( IntTreeNode root ) {
+    if ( root == null ) {
+        return 0;
+    }
+    else {
+        return 1 + size( root.left ) + size( root.right );
+    }
+}
