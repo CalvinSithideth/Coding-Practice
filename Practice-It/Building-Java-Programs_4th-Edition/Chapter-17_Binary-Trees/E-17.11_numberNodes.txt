@@ -1,0 +1,77 @@
+/*
+BJP4 Exercise 17.11: numberNodes
+Assignment: 
+
+Write a method numberNodes that changes the data stored in a binary tree,
+assigning sequential integers starting with 1 to each node so that a pre-order traversal will
+produce the numbers in order(1, 2, 3, etc.).
+
+For example, given the tree referenced by tree below at left, the call of tree.numberNodes();
+would overwrite the existing data assigning the nodes values from 1 to 6 so that a
+pre-order traversal of the tree would produce 1, 2, 3, 4, 5, 6.
+
+
+Before Call
+          +---+
+          | 7 |
+          +---+
+         /     \
+     +---+     +---+
+     | 3 |     | 9 |
+     +---+     +---+
+    /     \         \
++---+     +---+     +---+
+| 9 |     | 2 |     | 0 |
++---+     +---+     +---+
+
+
+After Call
+          +---+
+          | 1 |
+          +---+
+         /     \
+     +---+     +---+
+     | 2 |     | 5 |
+     +---+     +---+
+    /     \         \
++---+     +---+     +---+
+| 3 |     | 4 |     | 6 |
++---+     +---+     +---+
+
+
+You are not to change the structure of the tree.
+You are simply changing the values stored in the data fields.
+Your method should return a count of how many nodes were in the tree.
+
+
+Assume that you are adding this method to the IntTree class as defined below:
+
+public class IntTree {
+    private IntTreeNode overallRoot;
+    ...
+}
+
+
+Solution (partial class problem):
+*/
+
+
+public int numberNodes() {
+    if (overallRoot == null) {
+        return 0;
+    }
+    return numberNodes(overallRoot, 0);
+}
+
+private int numberNodes(IntTreeNode node, int count) {
+    
+    node.data = ++count;
+
+    if (node.left != null) {
+        count = numberNodes(node.left, count);
+    }
+    if (node.right != null) {
+        count = numberNodes(node.right, count);
+    }
+    return count;
+}
