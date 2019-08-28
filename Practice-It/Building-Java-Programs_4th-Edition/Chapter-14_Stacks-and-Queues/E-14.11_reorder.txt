@@ -1,0 +1,54 @@
+/*
+BJP4 Exercise 14.4: reorder
+Assignment: 
+
+Write a method reorder that takes a queue of integers as a parameter and
+that puts the integers into sorted (nondecreasing) order assuming that
+the queue is already sorted by absolute value.
+
+For example, suppose that a variable called q stores the following sequence of values:
+
+front [1, 2, -2, 4, -5, 8, -8, 12, -15, 23] back
+
+Notice that the values appear in sorted order if you ignore the sign of the numbers.
+The call of reorder(q); should reorder the values so that the queue stores this
+sequence of values:
+
+front [-15, -8, -5, -2, 1, 2, 4, 8, 12, 23] back
+
+Notice that the values now appear in sorted order taking into account the sign of the numbers.
+
+You may use one stack as auxiliary storage to solve this problem.
+
+Solution (method problem):
+*/
+
+
+public void reorder(Queue<Integer> q) {
+	Stack<Integer> s = new Stack<Integer>();
+    int qSize = q.size();
+    int prev = q.peek();
+    q.add( q.remove() );
+    
+    // Stack all unsorted
+    for (int i = 1; i < qSize; i++) {
+        if ( q.peek() < prev ) {
+            prev = s.push( q.remove() );
+        }
+        else {
+            q.add( q.remove() );
+        }
+    }
+    qSize = q.size();
+    
+    // Repop into queue
+    while ( !s.isEmpty() ) {
+        q.add( s.pop() );
+    }
+    
+    // Recycle queue
+    for (int i = 0; i < qSize; i++) {
+        q.add( q.remove() );
+    }
+    
+}
