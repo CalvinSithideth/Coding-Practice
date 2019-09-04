@@ -30,7 +30,7 @@ public class ArrayIntList {
     private int[] elementData;
     private int size;
 
-     // your code goes here
+    // your code goes here
 }
 
 
