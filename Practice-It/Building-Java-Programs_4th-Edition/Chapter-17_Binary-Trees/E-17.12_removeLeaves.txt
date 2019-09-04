@@ -1,0 +1,114 @@
+/*
+BJP4 Exercise 17.12: removeLeaves
+Assignment: 
+
+Write a method removeLeaves that removes the leaves from a tree.
+
+A leaf node that has empty left and right subtrees.
+
+If a variable tree refers to the first tree below, the call of tree.removeLeaves();
+should remove the four leaves from the tree (the nodes with data values 1, 4, 6, and 0)
+leaving the next tree shown below.
+
+A second call on the method would eliminate the two leaves in this tree
+(the nodes with data values 3 and 8), shown in the third tree below.
+
+A third call would eliminate the one leaf with data value 9,
+
+and a fourth call would leave an empty tree because the previous tree was exactly one leaf node.
+
+If your method is called on an empty tree,
+the method does not change the tree because there are no nodes of any kind (leaf or not).
+
+
+call                    #
+
+(before call)           0
+               +---+
+               | 7 |
+           ___ +---+ ___
+         /               \
+     +---+               +---+
+     | 3 |               | 9 |
+     +---+               +---+
+    /     \             /     \
++---+     +---+     +---+     +---+
+| 1 |     | 4 |     | 6 |     | 8 |
++---+     +---+     +---+     +---+
+                                   \
+                                   +---+
+                                   | 0 |
+                                   +---+
+
+
+tree.removeLeaves();    1
+               +---+
+               | 7 |
+               +---+
+              /     \
+          +---+     +---+
+          | 3 |     | 9 |
+          +---+     +---+
+                         \
+                         +---+
+                         | 8 |
+                         +---+
+
+
+tree.removeLeaves();    2
+               +---+
+               | 7 |
+               +---+
+                    \
+                    +---+
+                    | 9 |
+                    +---+
+
+
+tree.removeLeaves();    3
+               +---+
+               | 7 |
+               +---+
+
+
+tree.removeLeaves();    4
+                null
+
+
+Assume that you are adding this method to the IntTree class as defined below:
+
+public class IntTree {
+    private IntTreeNode overallRoot;
+    ...
+}
+
+
+Solution (partial class problem):
+*/
+
+
+// if no child nodes, delete nodes
+// recursive call on both child nodes
+// check child nodes
+
+public void removeLeaves() {
+    if (overallRoot == null) {
+        return;
+    }
+    else {
+        overallRoot = removeLeaves( overallRoot );
+    }
+}
+
+private IntTreeNode removeLeaves( IntTreeNode root ) {
+    if ( root.left == null && root.right == null ) { // No children / is leaf node
+        return null;
+    }
+    if ( root.left != null ) {
+        root.left = removeLeaves( root.left );
+    }
+    if ( root.right != null ) {
+        root.right = removeLeaves( root.right );
+    }
+    return root;
+}

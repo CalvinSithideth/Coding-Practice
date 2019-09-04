@@ -1,0 +1,31 @@
+/*
+BJP4 Self-Check 16.13: linkedNodes13
+Assignment: 
+
+Write the code necessary to convert the following sequence of ListNode objects:
+
+list -> [5] -> [4] -> [3] /
+
+Into this sequence of ListNode objects:
+
+list -> [4] -> [5] -> [3] /
+
+Assume that you are using ListNode class as defined in the textbook:
+
+public class ListNode {
+    public int data;       // data stored in this node
+    public ListNode next;  // a link to the next node in the list
+
+    public ListNode() { ... }
+    public ListNode(int data) { ... }
+    public ListNode(int data, ListNode next) { ... }
+}
+
+
+Solution (bare code):
+ */
+
+ListNode temp = list.next;
+list.next = list.next.next;
+temp.next = list; // [5,3]
+list = temp; // [4,5,3]
