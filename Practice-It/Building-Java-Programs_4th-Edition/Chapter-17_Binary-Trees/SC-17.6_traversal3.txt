@@ -26,7 +26,7 @@ Write the elements of the tree below in the order they would be seen by a pre-or
 
 
 Solution (Self-Check):
- */
+*/
  
 
 pre-order:  2,1,7,4,3,5,6,9,8
