@@ -1,5 +1,5 @@
 /*
-BJP4 Self-Check 17.17: bstAdd1
+BJP4 Exercise 17.17: bstAdd1
 Assignment:
 
 Suppose that the following elements are added in the specified order to an empty binary search tree:
