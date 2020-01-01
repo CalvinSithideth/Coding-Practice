@@ -1,0 +1,20 @@
+/*
+C++ - Programming Basics - helloWorld
+Assignment: 
+
+Write a complete C++ program with a main function that prints the following console output:
+
+Hello, world!
+
+Note: You must declare your main function with the following header:
+
+int main() {
+
+Solution (function exercise):
+ */
+
+int main()
+{
+    cout << "Hello, world!";
+    return 0;
+}
