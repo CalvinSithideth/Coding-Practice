@@ -27,6 +27,7 @@ Average: 5.5
 Solution (bare code):
  */
 
+
 int total = 0;
 int numInputs = 0;
 int currInput = 0;
