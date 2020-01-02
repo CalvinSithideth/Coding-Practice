@@ -1,0 +1,46 @@
+/*
+C++ - Programming Basics - evenSumMax
+Assignment:
+Write a function named evenSum that prompts the user for many integers and
+print the total even sum and maximum of the even numbers.
+
+You may assume that the user types at least one non-negative even integer.
+
+how many integers? 4
+next integer? 2
+next integer? 9
+next integer? 18
+next integer? 4
+even sum = 24
+even max = 18
+
+
+Solution (function exercise):
+ */
+
+
+void evenSum()
+{
+    int numIntegers = 0;
+    int currInteger;
+    int evenSum = 0;
+    int evenMax = 0;
+    cout << "how many integers? ";
+    cin >> numIntegers;
+    for (int i = 0; i < numIntegers; i++)
+    {
+        cout << "next integer? ";
+        cin >> currInteger;
+        if (currInteger % 2 == 0)
+        {
+            evenSum += currInteger;
+            if (currInteger > evenMax) // Check max after verified even num
+            {
+                evenMax = currInteger;
+            }
+        }
+    }
+    cout << "even sum = " << evenSum;
+    cout << endl; // Only time we need endl - std::cin has implicit endl
+    cout << "even max = " << evenMax;
+}
