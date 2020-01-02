@@ -1,0 +1,54 @@
+/*
+C++ - Programming Basics - evenAverage
+
+Related:
+http://www.martystepp.com/cppdoc/simpio.html
+
+Assignment:
+Write C++ code that prompts the user for nonzero integers,
+and then prints the average of all even numbers typed.
+(When the user types 0, stop asking for input.)
+
+You may assume that the user types at least one even integer.
+
+The following is an example output from one run of your code:
+
+Integer? 1
+Integer? 3
+Integer? 2
+Integer? 6
+Integer? 4
+Integer? 10
+Integer? 9
+Integer? 0
+Average: 5.5
+
+
+Solution (bare code):
+ */
+
+int total = 0;
+int numInputs = 0;
+int currInput = 0;
+double average;
+bool keepGoing = true;
+
+while(keepGoing)
+{
+    currInput = getInteger("Integer? ");
+    if(currInput == 0)
+    {
+        keepGoing = false;
+    }
+    else
+    {
+        if( (currInput % 2) == 0 )
+        {
+            numInputs++;
+            total += currInput;
+        }
+        
+    }
+}
+average = 1.0 * total / numInputs;
+cout << "Average: " << average;
