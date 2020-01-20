@@ -1,0 +1,52 @@
+/*
+C++ - Programming Basics - percentageGrade  
+Assignment:
+What's wrong with the following code?
+Modify it to produce the intended output.
+
+Make sure to properly utilize if/else/if statements
+to avoid redundancy and avoid unnecessary tests.
+
+Do not use && or || in your solution.
+
+
+Original code:
+
+int percent = getInteger("What percentage did you earn? ");
+if (percent >= 90) {
+    cout << "You got an A!" << endl;
+}
+if (percent >= 80) {
+    cout << "You got a B!" << endl;
+}
+if (percent >= 70) {
+    cout << "You got a C!" << endl;
+}
+if (percent >= 60) {
+    cout << "You got a D!" << endl;
+}
+if (percent < 60) {
+    cout << "You got an F!" << endl;
+}
+
+
+Solution (bare code):
+ */
+
+
+int percent = getInteger("What percentage did you earn? ");
+if (percent >= 90) {
+    cout << "You got an A!" << endl;
+}
+else if (percent >= 80) {
+    cout << "You got a B!" << endl;
+}
+else if (percent >= 70) {
+    cout << "You got a C!" << endl;
+}
+else if (percent >= 60) {
+    cout << "You got a D!" << endl;
+}
+else { // (percent < 60)
+    cout << "You got an F!" << endl;
+}
